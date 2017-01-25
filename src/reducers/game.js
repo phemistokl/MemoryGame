@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 
-import { startGame } from '../utils/minesweeper';
+import { startGame } from '../utils/memorygame';
 
 import {
     START_GAME,
