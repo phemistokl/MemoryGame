@@ -13,7 +13,7 @@ import Board from '../components/Board.jsx';
 export default class GameBoard extends Component {
     render() {
         const { board, revealTile, matchCheck } = this.props;
-
+        console.log(board);
         return (
             <Board
                 rows={board}
