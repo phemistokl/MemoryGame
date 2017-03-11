@@ -12,12 +12,13 @@ import Board from '../components/Board.jsx';
 )
 export default class GameBoard extends Component {
     render() {
-        const { board, revealTile } = this.props;
+        const { board, revealTile, matchCheck } = this.props;
 
         return (
             <Board
                 rows={board}
                 onReveal={revealTile}
+                onMatched={matchCheck}
             />
         );
     }

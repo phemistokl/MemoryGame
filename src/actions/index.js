@@ -1,6 +1,6 @@
 export const START_GAME = 'START_GAME';
 export const REVEAL_TILE = 'REVEAL_TILE';
-//export const TOGGLE_FLAGGED_TILE = 'TOGGLE_FLAGGED_TILE';
+export const MATCH_CHECK = 'MATCH_CHECK';
 
 export const startGame = query => ({
     type: START_GAME,
@@ -13,7 +13,6 @@ export const revealTile = tileId => ({
     tileId
 });
 
-// export const toggleFlaggedTile = tileId => ({
-//     type: TOGGLE_FLAGGED_TILE,
-//     tileId
-// });
+export const matchCheck = () => ({
+    type: MATCH_CHECK
+});

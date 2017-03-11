@@ -6,10 +6,13 @@ import styles from './Tile.less';
 
 export default class Tile extends Component {
     handleReveal = () => {
-        const { id, isRevealed, onReveal } = this.props;
+        const { id, isRevealed, onReveal, imgUrl, onMatched } = this.props;
 
         if (!isRevealed) {
-            onReveal(id)
+            onReveal(id),
+            setTimeout(() => {
+              onMatched();
+            }, 1000)
         }
     }
 
@@ -17,19 +20,20 @@ export default class Tile extends Component {
         const { isRevealed } = this.props;
 
         if (isRevealed) {
-            return 'active';
+            return 'white';
         }
 
-        return 'white';
+        return 'active';
     }
 
     render() {
+
         return (
             <span
                 className={styles.tile}
                 onClick={this.handleReveal}
             >
-                <Card size={40} type={this.getTileCard()} />
+                <Card size={40} type={this.getTileCard()} imgUrl={this.props.imgUrl} />
             </span>
         );
     }

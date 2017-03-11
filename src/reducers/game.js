@@ -1,10 +1,10 @@
 import { fromJS } from 'immutable';
 
-import { startGame } from '../utils/memorygame';
+import { startGame, revealTile, matchCheck } from '../utils/memorygame';
 
 import {
     START_GAME,
-    //TOGGLE_FLAGGED_TILE,
+    MATCH_CHECK,
     REVEAL_TILE
 } from '../actions';
 
@@ -26,9 +26,9 @@ export default (state = DEFAULT_STATE, action) => {
             return revealTile(state, action.tileId);
         }
 
-        // case TOGGLE_FLAGGED_TILE: {
-        //     return flagTile(state, action.tileId);
-        // }
+        case MATCH_CHECK: {
+            return matchCheck();
+        }
 
         default: {
             return state;

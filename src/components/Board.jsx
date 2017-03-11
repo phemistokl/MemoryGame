@@ -5,7 +5,7 @@ import Tile from './Tile.jsx';
 import styles from './Board.less';
 
 export default props => {
-    const { rows, onReveal } = props;
+    const { rows, onReveal, onMatched } = props;
 
     return (
         <div className={styles.base}>
@@ -19,6 +19,8 @@ export default props => {
                                     id={tile.get('id')}
                                     isRevealed={tile.get('isRevealed')}
                                     onReveal={onReveal}
+                                    onMatched={onMatched}
+                                    imgUrl={tile.get('img_url')}
                                 />
                             )
                         }
