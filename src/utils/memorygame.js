@@ -75,6 +75,23 @@ export function revealTile(game, tileId) {
     return game.setIn(['board', tileId, 'isRevealed'], true);
 }
 
-export function matchCheck() {
-    console.log("Hello");
+export function matchCheck(game) {
+    let isRevealed = [];
+
+    game.get('board').toJS().forEach(i => {
+        if (i.isRevealed === true && i.isMatched === false) {
+            isRevealed.push(i.id);
+            console.log(isRevealed);
+        }
+    });
+    if (isRevealed.length < 2) return;
+    if (game.getIn(['board', isRevealed[0], 'img_url']) === game.getIn(['board', isRevealed[1], 'img_url'])) {
+        game.setIn(['board', isRevealed[0], 'isMatched'], true);
+        game.setIn(['board', isRevealed[1], 'isMatched'], true);
+        //console.log(game.getIn(['board', isRevealed[1], 'isMatched']));
+    } else {
+        game.setIn(['board', isRevealed[0], 'isRevealed'], false);
+        game.setIn(['board', isRevealed[1], 'isRevealed'], false);
+        //console.log(game.getIn(['board', isRevealed[1], 'isRevealed']));
+    }
 }

@@ -27,7 +27,7 @@ export default (state = DEFAULT_STATE, action) => {
         }
 
         case MATCH_CHECK: {
-            return matchCheck();
+            return matchCheck(state);
         }
 
         default: {
