@@ -9,17 +9,17 @@ import {
 } from '../actions';
 
 const DEFAULT_STATE = fromJS({
-    board: [],
-    cols: 4,
-    rows: 4
+    board: []
+    // cols: 4,
+    // rows: 4
 });
 
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
         case START_GAME: {
-            const { rows, cols } = action;
+            // const { rows, cols } = action;
 
-            return startGame({ rows, cols });
+            return startGame();
         }
 
         case REVEAL_TILE: {
